@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id         String      @id @default(uuid())
+  email      String
+  characters Character[]
+}
+
+model Character {
+  id       String  @id @default(uuid())
+  name     String
+  class    Class
+  exp      Int
+  Player   Player? @relation(fields: [playerId], references: [id])
+  playerId String?
+}
+
+enum Class {
+  CLERIC
+  FIGHTER
+  MAGICUSER
+  THIEF
+}

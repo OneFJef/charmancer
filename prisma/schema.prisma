@@ -11,13 +11,13 @@ datasource db {
 }
 
 model Player {
-  id         String      @id @default(uuid())
-  email      String
+  id         String      @id @unique @default(uuid())
+  email      String      @unique
   characters Character[]
 }
 
 model Character {
-  id       String  @id @default(uuid())
+  id       String  @id @unique @default(uuid())
   name     String
   class    Class
   exp      Int

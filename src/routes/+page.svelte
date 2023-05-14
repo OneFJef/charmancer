@@ -1,15 +1,6 @@
-<script>
-	/** @type {import('./$types').PageData} */
-	export let data;
-	console.log(data);
-</script>
+<svelte:head>
+	<title>Home</title>
+</svelte:head>
 
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		{#each data.players as player}
-			<ul>
-				<a href="/{player.id}">Player: {player.email}</a>
-			</ul>
-		{/each}
-	</div>
-</div>
+<a href="/signup" class="btn variant-filled w-32 m-5">Signup</a>
+<a href="/login" class="btn variant-filled w-32 m-5">Login</a>
